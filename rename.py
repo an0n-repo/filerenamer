@@ -11,8 +11,8 @@ for folder_name in next(os.walk('.'))[1]:
     # Loop through all files in the folder
     for filename in os.listdir(folder_path):
         # Use regular expression to find the episode number
-        # This regex now looks for 'Episode XX' or 'Ep XX'
-        match = re.search(r'(?:Episode|Ep) (\d+)', filename, re.IGNORECASE)
+        # This regex now looks for 'Episode XX', 'Ep XX', or 'SXX EXX'
+        match = re.search(r'(?:Episode|Ep|\bS\d{2}\sE)\s?(\d+)', filename, re.IGNORECASE)
         if match:
             # Extract the episode number
             episode_number = match.group(1)
